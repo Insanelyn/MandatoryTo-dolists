@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-
-
 class TodoItems extends Component {
-
     render() {
         let todoEntries = this.props.entries;
         let listItems = todoEntries.map((item, index)=>{
@@ -14,8 +11,6 @@ class TodoItems extends Component {
         </li>
     )
     });
-
-
         return (
             <div>
             <ul className="theList">
@@ -26,5 +21,4 @@ class TodoItems extends Component {
     );
     }
 }
-
 export default TodoItems;
