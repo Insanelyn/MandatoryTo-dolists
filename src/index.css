@@ -1,6 +1,6 @@
 body {
   padding: 50px;
-  background-color: #66CCFF;
+  background-color: #66ff97;
   font-family: sans-serif;
 }
 #container {
@@ -19,13 +19,13 @@ body {
   font-size: 16px;
   margin: 10px;
   margin-right: 0px;
-  background-color: #0066FF;
-  color: #FFF;
-  border: 2px solid #0066FF;
+  background-color: #00ff4c;
+  color: #eafff0;
+  border: 2px solid #04ff76;
 }
 .todoListMain .header button:hover {
-  background-color: #003399;
-  border: 2px solid #003399;
+  background-color: #029936;
+  border: 2px solid #06993d;
   cursor: pointer;
 }
 .todoListMain .theList {
@@ -35,7 +35,7 @@ body {
 }
 .todoListMain .theList li {
   color: #333;
-  background-color: rgba(255,255,255,.5);
+  background-color: rgba(249, 255, 239, 0.5);
   padding: 15px;
   margin-bottom: 15px;
   border-radius: 5px;
@@ -65,9 +65,9 @@ ul.theList {
   font-size: 16px;
   margin: 10px;
   margin-right: 0px;
-  background-color: #0066FF;
+  background-color: #01ff53;
   color: #FFF;
-  border: 2px solid #0066FF;
+  border: 2px solid #35ff09;
 }
 
 .checkedItem
@@ -79,8 +79,8 @@ ul.theList {
 #complete
 {
   margin-left: 25px;
-  background-color: #0066FF;
+  background-color: #05ff24;
   color: #FFF;
-  border: 2px solid #0066FF;
+  border: 2px solid #0cff12;
 
 }
