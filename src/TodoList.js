@@ -1,16 +1,22 @@
 import React, { Component } from "react";
 import TodoItems from "./TodoItems";
+
 class TodoList extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
             items: []
         };
+
         this.addItem = this.addItem.bind(this);
         this.deleteItem = this.deleteItem.bind(this);
         this.markTodoDone = this.markTodoDone.bind(this);
         this.onRemoveDone = this.onRemoveDone.bind(this);
+
     }
+
+
     addItem(e) {
         if (this._inputElement.value.trim() !== "") {
             let newItem = {
@@ -23,58 +29,55 @@ class TodoList extends Component {
                 return {
                     items: prevState.items.concat(newItem)
                 };
-            });
+        });
 
             this._inputElement.value = "";
 
         }
+
         console.log(this.state.items);
 
         e.preventDefault();
-    }
-    deleteItem(key) {
-        let filteredItems = this.state.items.filter(function (item) {
-            return (item.key !== key);
-        });
-
-        this.setState({
-            items: filteredItems
-        });
 
     }
+    deleteItem(key){
+        const filteredItems = this.state.items.filter((item, i) => key !== i);
+        this.setState({items: filteredItems});
+    }
+
     markTodoDone(i) {
         const markedItems = this.state.items.map((item, index) => i === index ? {...item, checked: !item.checked}: item);
         this.setState({items: markedItems});
 
     }
+
     onRemoveDone() {
-        const newState = this.state.items.filter((item) => {
-            if (!item.checked) {
-                return item;
-            }
-        });
+        const newState = this.state.items.filter((item) => {if (!item.checked) return item;});
         this.setState({ items: newState });
     }
+
+
     render() {
         return (
             <div className="todoListMain">
-                <div className="header">
-                    <form onSubmit={(e)=>this.addItem(e)}>
-                        <input ref={(a) => this._inputElement = a} placeholder="enter task">
-                        </input>
-                        <button type="submit">add</button>
-                    </form>
-                </div>
-                <TodoItems entries={this.state.items}
-                           delete={this.deleteItem}
-                    //Lagt till marked as done
-
-
-                           markedItems={(index, e) => this.markTodoDone(index, e)}
-                />
-
+            <div className="header">
+            <form onSubmit={(e)=>this.addItem(e)}>
+    <input ref={(a) => this._inputElement = a} placeholder="enter task">
+            </input>
+            <button type="submit">add</button>
+            </form>
             </div>
-        );
+            <TodoItems entries={this.state.items}
+        delete={this.deleteItem}
+        marked={(index) => this.markTodoDone(index)}
+        deleteDone={()=>this.onRemoveDone()}
+
+        />
+
+        </div>
+    );
     }
 }
+
+
 export default TodoList;
